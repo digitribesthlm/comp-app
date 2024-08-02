@@ -1,7 +1,19 @@
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 import Head from 'next/head';
 import MeetingForm from '../components/MeetingForm';
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if (!token) {
+      router.replace('/login');
+    }
+  }, []);
+
   return (
     <div className="container mx-auto p-4">
       <Head>
