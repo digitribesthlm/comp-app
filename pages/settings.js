@@ -4,11 +4,12 @@ import Cookies from 'js-cookie';
 import ThemeSelector from '../components/ThemeSelector';
 
 const Settings = () => {
-  const [hcp, setHcp] = useState('');
-  const [homeCourse, setHomeCourse] = useState('');
-  const [unit, setUnit] = useState('meters');
-  const [status, setStatus] = useState('active');
-  const [gender, setGender] = useState('');
+  const [businessName, setBusinessName] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [reportSetting, setReportSetting] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const router = useRouter();
 
@@ -22,7 +23,7 @@ const Settings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission, e.g., send data to an API or update state
-    console.log({ hcp, homeCourse, unit, status, gender });
+    console.log({ businessName, name, email, reportSetting, username, password });
   };
 
   return (
@@ -32,60 +33,64 @@ const Settings = () => {
         <ThemeSelector />
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700">Handicap</label>
-            <input
-              type="number"
-              className="input input-bordered w-full"
-              value={hcp}
-              onChange={(e) => setHcp(e.target.value)}
-              placeholder="Enter your handicap"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Home Courses!</label>
+            <label className="block text-gray-700">Business Name</label>
             <input
               type="text"
               className="input input-bordered w-full"
-              value={homeCourse}
-              onChange={(e) => setHomeCourse(e.target.value)}
-              placeholder="Enter your home course"
+              value={businessName}
+              onChange={(e) => setBusinessName(e.target.value)}
+              placeholder="Enter your business name"
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Preferred Unit</label>
-            <select
-              className="select select-bordered w-full"
-              value={unit}
-              onChange={(e) => setUnit(e.target.value)}
-            >
-              <option value="meters">Meters</option>
-              <option value="feet">Feet</option>
-            </select>
+            <label className="block text-gray-700">Name</label>
+            <input
+              type="text"
+              className="input input-bordered w-full"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+            />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Status</label>
-            <select
-              className="select select-bordered w-full"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-            >
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-            </select>
+            <label className="block text-gray-700">Email</label>
+            <input
+              type="email"
+              className="input input-bordered w-full"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+            />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Gender</label>
-            <select
-              className="select select-bordered w-full"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-            >
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-              <option value="prefer_not_to_say">Prefer not to say</option>
-            </select>
+            <label className="block text-gray-700">Report Setting</label>
+            <input
+              type="checkbox"
+              className="checkbox"
+              checked={reportSetting}
+              onChange={(e) => setReportSetting(e.target.checked)}
+            />
+            <span className="ml-2">Enable report</span>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700">Username</label>
+            <input
+              type="text"
+              className="input input-bordered w-full"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your username"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700">Password</label>
+            <input
+              type="password"
+              className="input input-bordered w-full"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+            />
           </div>
           <div className="text-center">
             <button type="submit" className="btn btn-primary w-full">
