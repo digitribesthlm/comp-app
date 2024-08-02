@@ -23,7 +23,7 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-4xl font-bold mb-6">Submit Meeting Notes</h1>
+        <h1 className="text-4xl font-bold mb-6">Admin Interface Make</h1>
         <MeetingForm />
       </main>
     </div>
