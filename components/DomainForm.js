@@ -14,12 +14,13 @@ const DomainForm = () => {
     };
 
     const queryParams = new URLSearchParams({
-      query: JSON.stringify(payload)
+      Domain: domain,
+      Url: url
     }).toString();
     const webhookUrl = process.env.NEXT_PUBLIC_LATENODE_WEBHOOK_URL;
 
-    console.log('Webhook URL:', webhookUrl);
-    console.log('Query Params:', queryParams);
+    const fullUrl = `${webhookUrl}?${queryParams}`;
+    console.log('Full Webhook URL:', fullUrl);
 
     try {
       const response = await fetch(`${webhookUrl}?${queryParams}`, {
