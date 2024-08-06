@@ -16,16 +16,21 @@ const DomainForm = () => {
     const queryParams = new URLSearchParams(payload).toString();
     const webhookUrl = process.env.NEXT_PUBLIC_LATENODE_WEBHOOK_URL;
 
+    console.log('Webhook URL:', webhookUrl);
+    console.log('Query Params:', queryParams);
+
     try {
       const response = await fetch(`${webhookUrl}?${queryParams}`, {
         method: 'GET',
       });
 
+      const responseData = await response.text();
       if (response.ok) {
         setSuccessMessage('Domain information submitted successfully!');
         setDomain('');
         setUrl('');
       } else {
+        console.error('Failed to submit domain information:', responseData);
         setSuccessMessage('Failed to submit domain information.');
       }
     } catch (error) {
