@@ -34,7 +34,7 @@ const MobileMenu = () => {
                         <a onClick={() => handleLinkClick("/meeting-notes")} className="text-xl font-semibold">Meeting Notes</a>
                     </li>
                     <li>
-                        <a onClick={() => handleLinkClick("/statistics")} className="text-xl font-semibold">Statistics</a>
+                        <a onClick={() => handleLinkClick("/domain-info")} className="text-xl font-semibold">Domain</a>
                     </li>
                     <li>
                         <a onClick={() => handleLinkClick("/settings")} className="text-xl font-semibold">Settings</a>
