@@ -45,7 +45,7 @@ const DomainForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form onSubmit={handleSubmit} className="w-full max-w-md p-6 bg-white rounded-lg shadow-md space-y-4">
-        <h2 className="text-2xl font-bold mb-4 text-center">Submit Domain Information</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Submit Content</h2>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Domain</span>
