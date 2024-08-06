@@ -13,7 +13,9 @@ const DomainForm = () => {
       url,
     };
 
-    const queryParams = new URLSearchParams(payload).toString();
+    const queryParams = new URLSearchParams({
+      query: JSON.stringify(payload)
+    }).toString();
     const webhookUrl = process.env.NEXT_PUBLIC_LATENODE_WEBHOOK_URL;
 
     console.log('Webhook URL:', webhookUrl);
